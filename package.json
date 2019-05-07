@@ -1,0 +1,14 @@
+{
+    "name": "ordinary-pro",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "umi dev",
+        "build": "umi build"
+    },
+    "dependencies": {
+        "umi": "^2.6.17",
+        "umi-plugin-react": "^1.7.6"
+    }
+}
