@@ -14,4 +14,7 @@ app.use(createLoading());
   app.use(plugin);
 });
 
-
+app.model({ namespace: 'global', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/global.js').default) });
+app.model({ namespace: 'login', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/login.js').default) });
+app.model({ namespace: 'menu', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/menu.js').default) });
+app.model({ namespace: 'register', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/register.js').default) });

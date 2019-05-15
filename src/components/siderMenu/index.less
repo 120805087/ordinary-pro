@@ -1,0 +1,46 @@
+@import '~antd/lib/style/themes/default.less';
+
+.sider {
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    &.clearShadow {
+        box-shadow: none;
+    }
+    &:global(.ant-layout-sider-light) {
+        box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+        .logo {
+            background-color: #fff;
+            box-shadow: 1px 1px 0 0 #e8e8e8;
+            h1 {
+                color: @primary-color;
+            }
+        }
+    }
+}
+
+.logo {
+    position: relative;
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+    background-color: #002140;
+    overflow: hidden;
+    text-align: center;
+    img {
+        height: 32px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 6px;
+    }
+    h1 {
+        display: inline-block;
+        font-size: 20px;
+        color: white;
+        font-weight: 600;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+}
