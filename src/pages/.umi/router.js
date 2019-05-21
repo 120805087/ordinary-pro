@@ -2,6 +2,7 @@ import React from 'react';
 import { Router as DefaultRouter, Route, Switch } from 'react-router-dom';
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/_renderRoutes';
+import RendererWrapper0 from 'C:/Users/qs006/study/ordinary-pro/src/pages/.umi/LocaleWrapper.jsx'
 import _dvaDynamic from 'dva/dynamic'
 
 let Router = require('dva/router').routerRedux.ConnectedRouter;
@@ -76,7 +77,10 @@ let routes = [
         "name": "首页",
         "icon": "dashboard",
         "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__dashboard__models__chart.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/dashboard/models/chart.js').then(m => { return { namespace: 'chart',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__dashboard" */'../dashboard'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -276,8 +280,10 @@ routeChangeHandler(window.g_history.location);
 
 export default function RouterWrapper() {
   return (
-<Router history={window.g_history}>
+<RendererWrapper0>
+          <Router history={window.g_history}>
       { renderRoutes(routes, {}) }
     </Router>
+        </RendererWrapper0>
   );
 }

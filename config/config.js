@@ -13,6 +13,11 @@ export default {
                 dva: {
                     hmr: true
                 },
+                locale: { // 设置默认语言，可影响 antd
+                    default: 'zh-CN',
+                    baseNavigator: true,
+                    antd: true
+                },
                 dynamicImport: {
                     webpackChunkName: true,
                     loadingComponent: './components/pageLoading/index',

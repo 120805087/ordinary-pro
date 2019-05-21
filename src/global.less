@@ -1,0 +1,22 @@
+@import '~antd/lib/style/themes/default.less';
+
+canvas {
+    display: block;
+}
+
+@media (max-width: @screen-xs) {
+    .ant-table {
+        width: 100%;
+        overflow-x: auto;
+        &-thead > tr,
+        &-tbody > tr {
+            > th,
+            > td {
+                white-space: pre;
+                > span {
+                    display: block;
+                }
+            }
+        }
+    }
+}

@@ -8,13 +8,18 @@
         "build": "umi build"
     },
     "dependencies": {
+        "@antv/data-set": "^0.10.2",
+        "bizcharts": "^3.5.2",
         "classnames": "^2.2.6",
         "lodash": "^4.17.11",
+        "lodash-decorators": "^6.0.1",
         "memoize-one": "^5.0.4",
+        "numeral": "^2.0.6",
         "path-to-regexp": "^3.0.0",
         "react-container-query": "^0.11.0",
         "react-document-title": "^2.0.3",
         "react-media": "^1.9.2",
+        "resize-observer-polyfill": "^1.5.1",
         "umi": "^2.6.17",
         "umi-plugin-react": "^1.7.6",
         "umi-request": "^1.0.7"

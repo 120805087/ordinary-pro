@@ -22,6 +22,19 @@ class Api {
             data: params
         })
     }
+
+    // 获取图表数据
+    async fakeChratData() {
+        return request('/api/fake_chart_data')
+    }
+
+    // 获取 sales 数据
+    async fakeSalesData(payload) {
+        return request('/api/fake_sales_data', {
+            method: 'GET',
+            params: payload
+        })
+    }
 }
 
 export default Api;

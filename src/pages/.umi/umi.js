@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 // runtime plugins
 window.g_plugins = require('umi/_runtimePlugin');
 window.g_plugins.init({
-  validKeys: ['patchRoutes','render','rootContainer','modifyRouteProps','onRouteChange','dva',],
+  validKeys: ['patchRoutes','render','rootContainer','modifyRouteProps','onRouteChange','dva','locale',],
 });
 window.g_plugins.use(require('../../../node_modules/umi-plugin-dva/lib/runtime'));
 
@@ -34,7 +34,7 @@ Promise.all(moduleBeforeRendererPromises).then(() => {
   window.console && window.console.error(err);
 });
 
-
+require('../../global.less');
 
 // hot module replacement
 if (module.hot) {

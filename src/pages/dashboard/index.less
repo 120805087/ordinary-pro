@@ -1,0 +1,94 @@
+@import '~antd/lib/style/themes/default.less';
+
+.salesCard {
+    .salesExtraWrap {
+        padding-right: 24px;
+        line-height: 56px;
+    }
+    .salesExtra {
+        display: inline-block;
+        margin-right: 24px;
+        a {
+            margin-left: 24px;
+            color: @text-color;
+            &:hover {
+                color: @primary-color;
+            }
+            &.currentDate {
+                color: @primary-color;
+            }
+        }
+    }
+    :global(.ant-tabs-bar) {
+        margin-bottom: 24px;
+        padding-left: 16px;
+    }
+
+    .salesTypeRadio {
+        position: absolute;
+        right: 54px;
+        top: 12px;
+    }
+
+    .salesBar {
+        padding: 0 0 32px 32px;
+    }
+
+    .salesRank {
+        padding: 0 32px 32px 70px;
+        .salesRankContent {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                display: flex;
+                margin-top: 16px;
+                span {
+                    color: @text-color;
+                    font-size: @font-size-base;
+                    line-height: 22px;
+                }
+                .rankItemNumber {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 16px;
+                    font-weight: 600;
+                    font-size: 12px;
+                    text-align: center;
+                    border-radius: 50%;
+                    background-color: @background-color-base;
+                    &.active {
+                        color: #fff;
+                        background-color: #314659;
+                    }
+                }
+                .rankItemTitle {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+.twoColLayout {
+    .salesCard {
+        height: calc(100% - 24px);
+    }
+}
+
+@media screen and (max-width: @screen-md) {
+    .salesCard {
+        .salesExtraWrap {
+            display: none;
+        }
+        .salesBar {
+            padding:  0 20px;
+        }
+        .salesRank {
+            padding: 0 20px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+    }
+}
