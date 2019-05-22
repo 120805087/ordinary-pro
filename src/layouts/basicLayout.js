@@ -5,6 +5,7 @@ import Media from 'react-media'; // 响应式组件
 import DocumentTitle from 'react-document-title'; // 设置 page title
 import { ContainerQuery } from 'react-container-query'; // 增加全局的响应class
 import classnames from 'classnames';
+import Context from './MenuContext';
 import getPageTitle from '@/utils/getPageTitle';
 import { navTheme } from '../defaultSetting';
 import { getAuthority } from '@/utils/authority';
@@ -85,6 +86,14 @@ class BasicLayout extends Component {
         })
     }
 
+    getContext = () => {
+        const { location, breadcrumbNameMap } = this.props;
+        return {
+            location,
+            breadcrumbNameMap
+        }
+    }
+
     // 点击菜单
     onMenuClick = ({key}) => {
         const { dispatch } = this.props;
@@ -139,7 +148,9 @@ class BasicLayout extends Component {
             <DocumentTitle title={getPageTitle(pathname, breadcrumbNameMap)}>
                 <ContainerQuery query={query}>
                     {params => (
-                        <div className={classnames(params)}>{layout}</div>
+                        <Context.Provider value={this.getContext()}>
+                            <div className={classnames(params)}>{layout}</div>
+                        </Context.Provider>
                     )}
                 </ContainerQuery>
             </DocumentTitle>

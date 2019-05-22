@@ -160,8 +160,6 @@ class Pie extends Component {
             tooltip: propsTooltip = true,
         } = this.props;
 
-        console.log(data)
-
         let selected = propsSelected;
         let tooltip = propsTooltip;
 
