@@ -29,10 +29,19 @@ class Api {
     }
 
     // 获取 sales 数据
-    async fakeSalesData(payload) {
+    async fakeSalesData(params) {
         return request('/api/fake_sales_data', {
             method: 'GET',
-            params: payload
+            params
+        })
+    }
+
+    // 提交基础表单
+    async fakeSubmitForm(params) {
+        console.log(params)
+        return request('/api/forms', {
+            method: 'POST',
+            data: params
         })
     }
 }

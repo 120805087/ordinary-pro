@@ -1,5 +1,6 @@
 import { parse } from 'qs';
 import moment from 'moment';
+import nzh from 'nzh/cn';
 
 export function fixedZero(val) {
     return val * 1 < 10 ? `0${val}` : val;
@@ -66,4 +67,11 @@ export const getTimeDistance = type => {
 
     const year = now.getFullYear();
     return [moment(`${year}-01-01 00:00:00`), moment(`${year}-12-31 23:59:59`)];
+}
+
+/**
+ * 将数字转换为大写金额
+ */
+export function digitUppercase(n) {
+    return nzh.toMoney(n);
 }

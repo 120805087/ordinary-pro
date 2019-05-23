@@ -23,5 +23,8 @@ export default {
         res.send({
             status: 'ok'
         })
+    },
+    'POST /api/forms': (req, res) => {
+        res.send({ message: 'ok' })
     }
 }

@@ -95,7 +95,10 @@ models: () => [
             "path": "/form/basic-form",
             "name": "基础表单",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__forms__models__form.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/forms/models/form.js').then(m => { return { namespace: 'form',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__forms__basicForm" */'../forms/basicForm'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -105,7 +108,10 @@ models: () => [
             "path": "/form/step-form",
             "name": "分布表单",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__forms__models__form.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/forms/models/form.js').then(m => { return { namespace: 'form',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__forms__stepForm" */'../forms/stepForm'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -120,7 +126,10 @@ models: () => [
                 "path": "/form/step-form/info",
                 "name": "分步表单（填写转账信息）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__forms__models__form.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/forms/models/form.js').then(m => { return { namespace: 'form',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__forms__stepForm" */'../forms/stepForm/step1'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -130,7 +139,10 @@ models: () => [
                 "path": "/form/step-form/confirm",
                 "name": "分步表单（确认转账信息）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__forms__models__form.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/forms/models/form.js').then(m => { return { namespace: 'form',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__forms__stepForm" */'../forms/stepForm/step2'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -140,7 +152,10 @@ models: () => [
                 "path": "/form/step-form/result",
                 "name": "分步表单（完成）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__forms__models__form.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/forms/models/form.js').then(m => { return { namespace: 'form',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__forms__stepForm" */'../forms/stepForm/step3'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
