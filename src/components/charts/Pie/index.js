@@ -32,6 +32,7 @@ class Pie extends Component {
     componentWillUnmount() {
         window.cancelAnimationFrame(this.requestRef);
         window.removeEventListener('resize', this.resize);
+        this.resize.cancel();
     }
 
     reiszeObserver = () => {

@@ -180,7 +180,10 @@ models: () => [
             "path": "/list/table-list",
             "name": "查询表格",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__tableList" */'../list/tableList'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -190,7 +193,10 @@ models: () => [
             "path": "/list/basic-list",
             "name": "标准列表",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__basicList" */'../list/basicList'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -200,7 +206,10 @@ models: () => [
             "path": "/list/card-list",
             "name": "卡片列表",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__cardList" */'../list/cardList'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -210,7 +219,10 @@ models: () => [
             "path": "/list/search",
             "name": "搜索列表",
             "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -224,7 +236,10 @@ models: () => [
                 "path": "/list/search/articles",
                 "name": "搜索列表（文章）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/articles'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -234,7 +249,10 @@ models: () => [
                 "path": "/list/search/projects",
                 "name": "搜索列表（项目）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/projects'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
@@ -244,7 +262,10 @@ models: () => [
                 "path": "/list/search/applications",
                 "name": "搜索列表（应用）",
                 "component": _dvaDynamic({
-  
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
+],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/applications'),
   LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
 }),
