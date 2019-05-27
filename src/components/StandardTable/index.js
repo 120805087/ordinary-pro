@@ -23,6 +23,19 @@ class StandardTable extends PureComponent {
         }
     }
 
+    static getDerivedStateFromProps(nextProps) {
+        // clear state
+        if (nextProps.selectedRows.length === 0) {
+            const needTotalList = initTotalList(nextProps.columns);
+            return {
+                selectedRowKeys: [],
+                needTotalList
+            }
+        }
+
+        return null;
+    }
+
     handleRowSelectChange = (selectedRowKeys, selectedRows) => {
         let { needTotalList } = this.state;
         needTotalList = needTotalList.map(item => ({

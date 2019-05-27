@@ -33,6 +33,13 @@ export default {
                 type: 'save',
                 payload: response
             })
+        },
+        *update({ payload }, { call, put }) {
+            const response = yield call(list.updateRule, payload);
+            yield put({
+                type: 'save',
+                payload: response
+            });
         }
     },
 

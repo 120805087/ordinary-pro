@@ -17,7 +17,8 @@ import {
     DatePicker,
     Modal,
     message,
-    Steps
+    Steps,
+    Radio
 } from 'antd';
 import moment from 'moment';
 import StandardTable from '@/components/StandardTable';
@@ -29,6 +30,7 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 const Step = Steps.Step;
 const { TextArea } = Input;
+const RadioGroup = Radio.Group;
 
 const getValue = obj =>
     Object.keys(obj)
@@ -74,7 +76,15 @@ class UpdateForm extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            formVals: {},
+            formVals: {
+                name: props.values.name,
+                desc: props.values.desc,
+                key: props.values.key,
+                target: '0',
+                template: '0',
+                type: '1',
+                frequency: 'month'
+            },
             currentStep: 0
         }
     }
@@ -88,13 +98,132 @@ class UpdateForm extends PureComponent {
         }
     }
 
+    backward = () => {
+        const { currentStep } = this.state;
+        this.setState({
+            currentStep: currentStep - 1
+        })
+    }
+
+    forward = () => {
+        const { currentStep } = this.state;
+        this.setState({
+            currentStep: currentStep + 1
+        })
+    }
+
+    handleNext = currentStep => {
+        const { form, handleUpdate } = this.props;
+        const { formVals: oldValues } = this.state;
+
+        form.validateFields((err, fieldsValue) => {
+            if(err) return;
+            const formVals  = { ...oldValues, ...fieldsValue };
+            this.setState({
+                formVals
+            }, () => {
+                if (currentStep < 2) {
+                    this.forward();
+                } else {
+                    handleUpdate(formVals);
+                }
+            })
+        })
+    }
+
+    renderFooter = (currentStep) => {
+        const { handleUpdateModalVisible, values } = this.props;
+        if (currentStep === 1) {
+            return [
+                <Button key="back" style={{ float: 'left' }}  onClick={this.backward}>
+                    上一步
+                </Button>,
+                <Button key="cancel" onClick={() => handleUpdateModalVisible(false, values)}>
+                    取消
+                </Button>,
+                <Button key="forward" type="primary" onClick={() => this.handleNext(currentStep)}>
+                    下一步
+                </Button>,
+            ];
+        }
+        if (currentStep === 2) {
+            return [
+                <Button key="back" style={{ float: 'left' }} onClick={this.backward}>
+                    上一步
+                </Button>,
+                <Button key="cancel" onClick={() => handleUpdateModalVisible(false, values)}>
+                    取消
+                </Button>,
+                <Button key="forward" type="primary" onClick={() => this.handleNext(currentStep)}>
+                    完成
+                </Button>
+            ];
+        }
+
+        return [
+            <Button key="cancel" onClick={() => handleUpdateModalVisible(false, values)}>
+                取消
+            </Button>,
+            <Button key="forward" type="primary" onClick={() => this.handleNext(currentStep)}>
+                下一步
+            </Button>,
+        ]
+    }
+
     renderContent  = (currentStep, formVals) => {
         const { form: { getFieldDecorator } } = this.props;
         if (currentStep === 1) {
-            return null
+            return [
+                <Form.Item key="target" {...this.formLayout} label="监控对象">
+                    {getFieldDecorator('target', {
+                        initialValue: formVals.target
+                    })(<Select style={{ width: '100%' }}>
+                        <Option value="0">表一</Option>
+                        <Option value="1" >表二</Option>
+                    </Select>)}
+                </Form.Item>,
+                <Form.Item key="template" {...this.formLayout} label="规则模板">
+                    {getFieldDecorator('template', {
+                        initialValue: formVals.template
+                    })(<Select style={{ width: '100%' }}>
+                        <Option value="0">规则模板一</Option>
+                        <Option value="1" >规则模板二</Option>
+                    </Select>)}
+                </Form.Item>,
+                <Form.Item key="type" {...this.formLayout} label="规则类型">
+                    {getFieldDecorator('type', {
+                        initialValue: formVals.type
+                    })(<RadioGroup>
+                        <Radio value="0">强</Radio>
+                        <Radio value="1">弱</Radio>
+                    </RadioGroup>)}
+                </Form.Item>
+            ];
         }
         if (currentStep === 2) {
-            return null
+            return [
+                <Form.Item key="time" {...this.formLayout} label="开始时间">
+                    {getFieldDecorator('time', {
+                        rules: [{ required: true, message: '请选择开始时间！' }],
+                        initialValue: formVals.time
+                    })(
+                        <DatePicker
+                            style={{ width: '100%' }}
+                            showTime
+                            format="YYYY-MM-DD HH:mm:ss"
+                            placeholder="选择开始时间"
+                         />
+                    )}
+                </Form.Item>,
+                <Form.Item key="frequency" {...this.formLayout} label="调度周期">
+                    {getFieldDecorator('frequency', {
+                        initialValue: formVals.frequency
+                    })(<Select style={{ width: '100%' }}>
+                        <Option value="month">月</Option>
+                        <Option value="week" >周</Option>
+                    </Select>)}
+                </Form.Item>
+            ]
         }
         return [
             <Form.Item key="name" {...this.formLayout} label="规则名称">
@@ -123,7 +252,7 @@ class UpdateForm extends PureComponent {
                 destroyOnClose
                 title="规则配置"
                 visible={updateModalVisible}
-                // footer={this.renderFooter(currentStep)}
+                footer={this.renderFooter(currentStep)}
                 onCancel={() => handleUpdateModalVisible(false, values)}
                 afterClose={() => handleUpdateModalVisible()}
             >
@@ -459,6 +588,26 @@ export default class TableList extends PureComponent {
         })
     }
 
+    handleUpdate = fields => {
+        const { dispatch } = this.props;
+        const { formValues } = this.state;
+
+        dispatch({
+            type: 'rule/update',
+            payload: {
+                query: formValues,
+                body: {
+                    name: fields.name,
+                    desc: fields.desc,
+                    key: fields.key
+                }
+            }
+        });
+
+        message.success('配置成功');
+        this.handleUpdateModalVisible();
+    }
+
     render() {
         const { selectedRows, modalVisible, stepFormValues, updateModalVisible } = this.state;
         const {
@@ -502,7 +651,7 @@ export default class TableList extends PureComponent {
                             )}
                         </div>
                         <StandardTable
-                            // selectedRows={selectedRows}
+                            selectedRows={selectedRows}
                             loading={loading}
                             data={data}
                             columns={this.columns}

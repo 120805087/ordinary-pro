@@ -1,4 +1,5 @@
 import request from '@/utils/request';
+import { stringify } from 'qs';
 
 class List {
     // 获取 list 列表
@@ -25,6 +26,16 @@ class List {
             data: {
                 ...params,
                 method: 'delete'
+            }
+        })
+    }
+
+    updateRule(params={}) {
+        return request(`/api/rule?${stringify(params.query)}`, {
+            method: 'POST',
+            data: {
+                ...params.body,
+                method: 'update'
             }
         })
     }
