@@ -182,6 +182,7 @@ models: () => [
             "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__tableList" */'../list/tableList'),
@@ -195,6 +196,7 @@ models: () => [
             "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__basicList" */'../list/basicList'),
@@ -208,6 +210,7 @@ models: () => [
             "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__cardList" */'../list/cardList'),
@@ -221,6 +224,7 @@ models: () => [
             "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList'),
@@ -238,6 +242,7 @@ models: () => [
                 "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/articles'),
@@ -251,6 +256,7 @@ models: () => [
                 "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/projects'),
@@ -264,6 +270,7 @@ models: () => [
                 "component": _dvaDynamic({
   app: window.g_app,
 models: () => [
+  import(/* webpackChunkName: 'p__list__models__list.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/list.js').then(m => { return { namespace: 'list',...m.default}}),
   import(/* webpackChunkName: 'p__list__models__rule.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/list/models/rule.js').then(m => { return { namespace: 'rule',...m.default}})
 ],
   component: () => import(/* webpackChunkName: "p__list__searchList" */'../list/searchList/applications'),

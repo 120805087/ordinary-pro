@@ -39,6 +39,44 @@ class List {
             }
         })
     }
+
+    queryFakeList(params={}) {
+        return request('/api/fake_list', {
+            method: 'GET',
+            params
+        })
+    }
+
+    addFakeList(params={}) {
+        const { count = 5, ...restParams } = params;
+        return request(`/api/fake_list?count=${count}`, {
+            method: 'POST',
+            data: {
+                ...restParams,
+                method: 'post',
+            },
+        });
+    }
+    removeFakeList(params={}) {
+        const { count = 5, ...restParams } = params;
+        return request(`/api/fake_list?count=${count}`, {
+            method: 'POST',
+            data: {
+                ...restParams,
+                method: 'delete',
+            },
+        });
+    }
+    updateFakeList(params={}) {
+        const { count = 5, ...restParams } = params;
+        return request(`/api/fake_list?count=${count}`, {
+            method: 'POST',
+            data: {
+                ...restParams,
+                method: 'update',
+            },
+        });
+    }
 };
 
 export default List;

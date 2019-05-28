@@ -5,7 +5,7 @@ import { DataView } from '@antv/data-set';
 import classnames from 'classnames';
 import Debounce from 'lodash-decorators/debounce';
 import Bind from 'lodash-decorators/bind';
-import ResizeObserver from 'resize-observer-polyfill';
+// import ResizeObserver from 'resize-observer-polyfill';
 
 import styles from './index.less';
 
@@ -13,7 +13,6 @@ const { Html } = Guide;
 
 class Pie extends Component {
     state = {
-        height: 0,
         legendData: [],
         legendBlock: false
     }
@@ -26,7 +25,6 @@ class Pie extends Component {
             },
             { passive: true }
         );
-        this.reiszeObserver();
     }
 
     componentWillUnmount() {
@@ -35,28 +33,9 @@ class Pie extends Component {
         this.resize.cancel();
     }
 
-    reiszeObserver = () => {
-        const ro = new ResizeObserver(entries => {
-            const { height } = entries[0].contentRect;
-            this.setState(preState => {
-                if (preState.height !== height) {
-                    return {
-                        height
-                    };
-                }
-                return null;
-            })
-        })
-        if (this.chartDom) {
-            ro.observe(this.chartDom);
-        }
-    }
-
-
     @Bind()
     @Debounce(300)
     resize() {
-        console.log('size')
         const { hasLegend } = this.props;
         const { legendBlock } = this.state;
         if (!hasLegend || !this.root) {
@@ -140,7 +119,7 @@ class Pie extends Component {
             hasLegend = false,
             className,
             style,
-            height: propsHeight,
+            height,
             percent,
             color,
             inner = 0.75,
@@ -149,7 +128,7 @@ class Pie extends Component {
             lineWidth = 1
         } = this.props;
 
-        const { height, legendData, legendBlock } = this.state;
+        const { legendData, legendBlock } = this.state;
         const pieClassName = classnames(styles.pie, className, {
             [styles.hasLegend]: !!hasLegend,
             [styles.legendBlock]: legendBlock
@@ -216,7 +195,7 @@ class Pie extends Component {
                    <div className={styles.chart}>
                         <Chart
                             scale={scale}
-                            height={propsHeight || height}
+                            height={height}
                             data={dv}
                             forceFit
                             padding={padding}

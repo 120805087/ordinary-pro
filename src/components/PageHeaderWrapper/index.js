@@ -10,14 +10,14 @@ const { Title } = Typography;
 
 const PageHeaderWrapper = ({
     children,
-    wrapperClassName,
+    hidePageTitle,
     title,
     content,
     hiddenBreadcrumb,
     ...restProps
 }) => {
     return (
-        <div style={{ margin: '-24px -24px 0' }} className={classnames(wrapperClassName, styles.main)}>
+        <div style={{ margin: '-24px -24px 0' }} className={classnames(hidePageTitle ? styles.hidePageTitle : '', styles.main)}>
             <MenuContext.Consumer>
                 {value => (
                     <PageHeader
