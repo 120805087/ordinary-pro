@@ -1,12 +1,30 @@
 import React from 'react';
 import Link from 'umi/link';
-import { PageHeader, Typography  } from 'antd';
+import { PageHeader, Typography, Tabs } from 'antd';
 import classnames from 'classnames';
 import MenuContext from '@/layouts/MenuContext';
 import { conversionBreadcrumbList } from './breadcrumb';
 import styles from './index.less';
 
 const { Title } = Typography;
+
+const renderFooter = ({ tabList, tabActiveKey, onTabChange }) => {
+    return tabList && tabList.length ? (
+        <Tabs
+            className={styles.tabs}
+            activeKey={tabActiveKey}
+            onChange={key => {
+                if (onTabChange) {
+                    onTabChange(key);
+                }
+            }}
+        >
+            {tabList.map(item => (
+                <Tabs.TabPane tab={item.tab} key={item.key} />
+            ))}
+        </Tabs>
+    ) : null;
+};
 
 const PageHeaderWrapper = ({
     children,
@@ -35,7 +53,7 @@ const PageHeaderWrapper = ({
                         }
                         className={styles.pageHeader}
                         linkElement={Link}
-                        footer={null}
+                        footer={renderFooter(restProps)}
                     >
                         {content && <div className={styles.content}>{content}</div>}
                     </PageHeader>

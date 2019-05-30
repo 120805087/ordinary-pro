@@ -16,6 +16,13 @@ export default {
                 payload: response
             });
         },
+        *appendFetch({ payload }, { call, put }) {
+            const response = yield call(list.queryFakeList, payload);
+            yield put({
+                type: 'appendList',
+                payload: response
+            })
+        },
         *submit({ payload }, { call, put }) {
             let callback;
             if (payload.id) {

@@ -1,0 +1,29 @@
+@import '~antd/lib/style/themes/default.less';
+
+.listContent {
+    .desc {
+        font-size: @font-size-base;
+        color: @text-color;
+        max-width: 500px;
+        width: 100%;
+    }
+    .extra {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        > span {
+            margin: 0 12px;
+            color: @text-color-secondary;
+        }
+        > em {
+            font-style: normal;
+            margin-left: 12px;
+        }
+        :global {
+            .ant-avatar {
+                margin: 0;
+            }
+        }
+    }
+}

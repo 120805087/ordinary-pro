@@ -1,0 +1,64 @@
+@import '~antd/lib/style/themes/default.less';
+
+.selfTrigger {
+    margin-left: 12px;
+}
+
+.cardList {
+    margin-top: 24px;
+    .card {
+        :global {
+            .ant-card-meta-title {
+                > a {
+                    color: @heading-color;
+                }
+            }
+            .ant-card-body {
+                &:hover {
+                    .ant-card-meta-title {
+                        > a {
+                            color: @primary-color;
+                        }
+                    }
+                }
+            }
+            .ant-typography {
+                color: @text-color-secondary;
+                line-height: 22px;
+                font-size: @font-size-base;
+            }
+        }
+        .cardItemContent {
+            display: flex;
+            span {
+                flex: 1;
+                color: @text-color-secondary;
+                font-size: 12px;
+            }
+            .avatarList {
+                flex: 0 1 auto;
+            }
+        }
+    }
+}
+
+.appliList {
+    margin-top: 24px;
+    .cardItemContent {
+        padding: 20px 0 10px;
+        .cardInfo {
+            display: flex;
+            justify-content: space-evenly;
+            > div {
+                > p {
+                    font-size: @font-size-base;
+                    &:last-child {
+                        color: @heading-color;
+                        font-size: 22px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
