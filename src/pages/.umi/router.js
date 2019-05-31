@@ -289,6 +289,56 @@ models: () => [
         ]
       },
       {
+        "path": "/settings",
+        "name": "设置",
+        "icon": "user",
+        "component": _dvaDynamic({
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__settings__models__geographic.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/settings/models/geographic.js').then(m => { return { namespace: 'geographic',...m.default}})
+],
+  component: () => import(/* webpackChunkName: "p__settings" */'../settings'),
+  LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
+}),
+        "hideChildrenInMenu": true,
+        "routes": [
+          {
+            "path": "/settings",
+            "redirect": "/settings/base",
+            "exact": true
+          },
+          {
+            "path": "/settings/base",
+            "name": "基本设置",
+            "component": _dvaDynamic({
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__settings__models__geographic.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/settings/models/geographic.js').then(m => { return { namespace: 'geographic',...m.default}})
+],
+  component: () => import(/* webpackChunkName: "p__settings__base" */'../settings/base'),
+  LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
+}),
+            "exact": true
+          },
+          {
+            "path": "/settings/security",
+            "name": "安全设置",
+            "component": _dvaDynamic({
+  app: window.g_app,
+models: () => [
+  import(/* webpackChunkName: 'p__settings__models__geographic.js' */'C:/Users/qs006/study/ordinary-pro/src/pages/settings/models/geographic.js').then(m => { return { namespace: 'geographic',...m.default}})
+],
+  component: () => import(/* webpackChunkName: "p__settings__security" */'../settings/security'),
+  LoadingComponent: require('C:/Users/qs006/study/ordinary-pro/src/components/pageLoading/index').default,
+}),
+            "exact": true
+          },
+          {
+            "component": () => React.createElement(require('C:/Users/qs006/study/ordinary-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
+          }
+        ]
+      },
+      {
         "component": _dvaDynamic({
   
   component: () => import(/* webpackChunkName: "p__404" */'../404'),

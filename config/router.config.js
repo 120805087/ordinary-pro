@@ -77,7 +77,7 @@ export default [
                 ]
             },
             {
-                path: 'list',
+                path: '/list',
                 name: '列表页',
                 icon: 'table',
                 routes: [
@@ -121,6 +121,29 @@ export default [
                                 component: './list/searchList/applications'
                             }
                         ]
+                    }
+                ]
+            },
+            {
+                path: '/settings',
+                name: '设置',
+                icon: 'user',
+                component: './settings',
+                hideChildrenInMenu: true,
+                routes: [
+                    {
+                        path: '/settings',
+                        redirect: '/settings/base'
+                    },
+                    {
+                        path: '/settings/base',
+                        name: '基本设置',
+                        component: './settings/base'
+                    },
+                    {
+                        path: '/settings/security',
+                        name: '安全设置',
+                        component: './settings/security'
                     }
                 ]
             },

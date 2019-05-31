@@ -1,0 +1,36 @@
+@import '~antd/lib/style/themes/default.less';
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 16px 0;
+    background-color: @body-background;
+    .leftMenu {
+        width: 224px;
+    }
+    .right {
+        flex: 1;
+        padding: 8px 40px;
+        .title {
+            margin-bottom: 12px;
+            color: @text-color;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+}
+
+@media screen and (max-width: @screen-md) {
+    .main {
+        flex-direction: column;
+        .leftMenu {
+            width: 100%;
+            border: none;
+        }
+        .right {
+            padding: 40px;
+        }
+    }
+}
