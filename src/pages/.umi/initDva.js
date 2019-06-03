@@ -18,3 +18,4 @@ app.model({ namespace: 'global', ...(require('C:/Users/qs006/study/ordinary-pro/
 app.model({ namespace: 'login', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/login.js').default) });
 app.model({ namespace: 'menu', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/menu.js').default) });
 app.model({ namespace: 'register', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/register.js').default) });
+app.model({ namespace: 'user', ...(require('C:/Users/qs006/study/ordinary-pro/src/models/user.js').default) });

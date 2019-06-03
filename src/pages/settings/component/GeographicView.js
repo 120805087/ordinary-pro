@@ -27,6 +27,17 @@ class GeographicView extends PureComponent {
         });
     }
 
+    componentDidUpdate(props) {
+        const { dispatch, value } = this.props;
+
+        if (!props.value && !!value && !!value.province) {
+            dispatch({
+                type: 'geographic/fetchCity',
+                payload: value.province.key
+            })
+        }
+    }
+
     selectProvinceItem = item => {
         const { dispatch, onChange } = this.props;
         dispatch({
@@ -36,6 +47,14 @@ class GeographicView extends PureComponent {
         onChange({
             province: item,
             city: nullSelectItem
+        })
+    }
+
+    selectCityItem = item => {
+        const { value, onChange } = this.props;
+        onChange({
+            province: value.province,
+            city: item
         })
     }
 

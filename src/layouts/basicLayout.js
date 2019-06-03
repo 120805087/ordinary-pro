@@ -56,9 +56,12 @@ class BasicLayout extends Component {
             })
         }
         dispatch({
+            type: 'user/fetchCurrent'
+        });
+        dispatch({
             type: 'menu/getMenuData',
             payload: { routes }
-        })
+        });
     }
 
     componentDidUpdate(preProps, preState) {
