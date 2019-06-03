@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import { Layout, Modal } from 'antd';
 import { connect } from 'dva';
 import Media from 'react-media'; // 响应式组件
 import DocumentTitle from 'react-document-title'; // 设置 page title
@@ -13,6 +13,7 @@ import logo from '@/assets/logo.svg';
 
 import SiderMenu from '../components/siderMenu';
 import GlobalHeader from '../components/globalHeader';
+import UpdatePassword from './UpdatePassword';
 
 import styles from './basicLayout.less';
 
@@ -44,6 +45,10 @@ const query = {
 };
 
 class BasicLayout extends Component {
+
+    state = {
+        visible: false
+    }
 
     componentDidMount() {
         const {
@@ -97,11 +102,41 @@ class BasicLayout extends Component {
         }
     }
 
+    // 修改密码操作
+    openPassModal = () => {
+        this.setState({
+            visible: true
+        })
+    }
+
+    closePassModal = () => {
+        this.setState({
+            visible: false
+        })
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+        const { form } = this.formRef.props;
+
+        form.validateFields((err, values) => {
+            if (err) return;
+            console.log(values)
+            this.setState({
+                visible: false
+            })
+        })
+    }
+
+    saveFormRef = formRef => {
+        this.formRef = formRef;
+    }
+
     // 点击菜单
     onMenuClick = ({key}) => {
         const { dispatch } = this.props;
         if (key === 'checkPass') {
-            console.log('修改密码')
+            this.openPassModal()
         }
         if (key === 'logout') {
             dispatch({
@@ -111,6 +146,7 @@ class BasicLayout extends Component {
     }
 
     render() {
+        const { visible } = this.state;
         const {
             collapsed,
             children,
@@ -145,6 +181,7 @@ class BasicLayout extends Component {
                         { children }
                     </Content>
                 </Layout>
+                <UpdatePassword wrappedComponentRef={this.saveFormRef}  visible={visible} onCancel={this.closePassModal} onSubmit={this.onSubmit} />
             </Layout>
         )
         return (
