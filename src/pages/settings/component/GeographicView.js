@@ -84,7 +84,6 @@ class GeographicView extends PureComponent {
     };
 
     getOption = list => {
-        console.log(list)
         if (!list || list.length < 1) {
             return (
                 <Option key={0} value={0}>没有找到选项</Option>

@@ -56,7 +56,6 @@ const conversionFromLocation = (routerLocation, breadcrumbNameMap, props) => {
         })
     };
 
-    console.log(extraBreadcrumbItems)
     return extraBreadcrumbItems;
 }
 
@@ -76,7 +75,6 @@ export const getBreadcrumbProps = props => {
 export const conversionBreadcrumbList = props => {
     const { breadcrumbList } = props;
     const { routes, params, routerLocation, breadcrumbNameMap } = getBreadcrumbProps(props);
-    console.log(props)
 
     // 如果传入写入的面包屑
     if (breadcrumbList && breadcrumbList.length) {
